@@ -1,0 +1,19 @@
+<%-
+    icon_tag      = Util.get_icon_tag          status
+    time_and_link = Util.get_link_to_status    status, :format => '%y-%m-%d<br />%H:%M:%S'
+    status_body   = Util.link_status_text      status
+    reply_to      = Util.get_link_in_reply_to  status
+    source        = status['source']
+-%>
+<div class="twtr2wp_status">
+    <span class="twtr2wp_icon"><%= icon_tag %></span>
+    <span class="twtr2wp_time"><%= time_and_link %></span>
+    <span class="twtr2wp_text"><%= status_body %></span>
+    <span class="twtr2wp_reply">
+    <%- if reply_to -%>
+    ( =&gt; <%= reply_to %> )
+    <%- end -%>
+    <br />
+    ( via [<%= source %>] )
+    </span>
+</div>

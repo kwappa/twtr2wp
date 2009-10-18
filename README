@@ -1,0 +1,21 @@
+自分のpostを引っ張り出して保存します。
+将来的にはWordPressに月別 / 週別などに切り出してエントリできるようにする予定です。
+
+・commitしていないファイル
+  * lib/twtr2wp/account.rb
+    twitterアカウント情報を記入してください。
+
+# -*- coding: utf-8 -*-
+module Twtr2wp
+  class Account
+    LOGIN    = '<USER ID>'
+    PASSWORD = '<PASSWORD>'
+  end
+end
+
+  * data/monthly/
+  * data/result/
+  * data/src/
+
+    …データファイルの保存に使います。data/以下は書き込み可能にしてください。
+
