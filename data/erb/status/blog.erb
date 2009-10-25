@@ -1,0 +1,14 @@
+<%-
+	icon_tag      = Util.get_icon_tag          status
+    time_and_link = Util.get_link_to_status    status, :format => '%H:%M:%S'
+    status_body   = Util.link_status_text      status
+    reply_to      = Util.get_link_in_reply_to  status
+    source        = status['source']
+-%>
+<div>
+    <span><%= time_and_link %></span>
+    <span><%= status_body %></span>
+    <%- if reply_to -%>
+    <span> ( =&gt; <%= reply_to %> ) </span>
+    <%- end -%>
+</div>
