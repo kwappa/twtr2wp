@@ -40,6 +40,10 @@ module Twtr2wp
         # FIXME
         rendering
 
+      when 'render_file'
+        # FIXME
+        rendering_file
+
       else
         puts 'usage : twtr2wp store|render'
         return
@@ -65,6 +69,31 @@ module Twtr2wp
       File.open("data/result/#{ym}.html", 'w') { |w|
         w.write page
       }
+    end
+
+    # FIXME : ファイル指定してレンダリング
+    def rendering_file
+      unless src_file = ARGV[1]
+        puts 'usage : twtr2wp rendering_file {src_file}'
+      end
+      erb_name = ARGV[2] ||= 'blog'
+
+      tmp_file = src_file + ".tmp"
+      dst_file = src_file.sub(/#{File.extname(src_file)}$/, '.html')
+
+      tmp = File.open(src_file).read.split("\n").reverse
+      File.open(tmp_file, 'w') { |w|
+        w.puts tmp
+      }
+
+      renderer = Renderer.new
+      timeline = renderer.render_timeline tmp_file, 'blog'
+      File.open(dst_file, 'w') { |w|
+        timeline.each do |tl|
+          w.puts tl if tl.chomp.length > 0
+        end
+      }
+      File.unlink tmp_file
     end
 
   end
