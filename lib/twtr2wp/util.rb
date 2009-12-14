@@ -20,7 +20,7 @@ module Twtr2wp
     # 本文中の#HASHTAGに対するリンク
     def self.link_hash_tag text
       result = text
-      result.scan(/(#)([0-9a-zA-Z_-]+)([^0-9a-zA-Z_-]|$)/).each do |m|
+      result.scan(/[\s+|^](#)([0-9a-zA-Z_-]+|([\x00-\x7f]|[\xC0-\xDF][\x80-\xBF]|[\xE0-\xEF][\x80-\xBF]{2}|[\xF0-\xF7][\x80-\xBF]{3})+_)([^0-9a-zA-Z_-]|$)/).each do |m|
         result.gsub!(m[0] + m[1], "<a href=\"http://twitter.com/search?q=%23#{m[1]}\" target=\"_blank\">##{m[1]}</a>")
       end
       result
