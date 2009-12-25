@@ -56,7 +56,7 @@ module Twtr2wp
         link_str = status["#{options[:target]}"]
       end
 
-      "<a href=\"http://twitter.com/#{status['user']['name']}/status/#{status['id']}\" target=\"_blank\">#{link_str}</a>"
+      "<a href=\"http://twitter.com/#{status['user']['screen_name']}/status/#{status['id']}\" target=\"_blank\">#{link_str}</a>"
     end
 
     # 発言がリプライの場合オリジナル発言へのリンク
