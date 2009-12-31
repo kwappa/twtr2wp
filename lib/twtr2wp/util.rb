@@ -30,7 +30,7 @@ module Twtr2wp
     def self.link_url text
       result = text
       result.scan(/https?:\/\/[-_.!~*'()a-zA-Z0-9;\/?:@&=+$,%#]+/).each do |m|
-        result.gsub!(m, "<a href=\"#{m}\" target=\"_blank\">#{m}</a>")
+        result.sub!(m, "<a href=\"#{m}\" target=\"_blank\">#{m}</a>")
       end
       result
     end
