@@ -13,5 +13,10 @@ module Twtr2wp
       @client.timeline_for(:me, :count => count, :page => page, :since_id => since_id)
     end
 
+    # 自分のお気に入りを取得
+    def my_favorites page
+      @client.favorites(:page => page)
+    end
+
   end
 end

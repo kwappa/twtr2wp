@@ -44,6 +44,10 @@ module Twtr2wp
         # FIXME
         rendering_file
 
+      # 自分のお気に入りを取得
+      when 'store_fav'
+        Process.save_my_favorites
+
       else
         puts 'usage : twtr2wp store|render'
         return

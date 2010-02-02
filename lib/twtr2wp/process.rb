@@ -90,5 +90,18 @@ module Twtr2wp
       end
     end
 
+    # お気に入りを取れるかぎり取得
+    def self.save_my_favorites
+      user       = Account::LOGIN
+      api        = Api.new
+      today      = Time.now.strftime('%Y%m%d')
+
+      MAX_STATUS_PAGES.times do |t|
+        file_name = sprintf('data/src/fav_%s_%s_%02d.txt', user, today, t + 1)
+        timeline = api.my_favorites t + 1
+        DataFile::save_timeline timeline, file_name
+      end
+    end
+
   end
 end
