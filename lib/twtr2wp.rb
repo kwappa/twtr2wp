@@ -48,6 +48,16 @@ module Twtr2wp
       when 'store_fav'
         Process.save_my_favorites
 
+      # 保存済みファイルからキーワード検索
+      when 'search_and_store'
+        keyword   = ARGV[1]
+        dest_name = ARGV[2]
+        if !keyword || !dest_name
+          puts 'usage : twtr2wp search_and_store keyword dest_name [ASC|DESC]'
+          return
+        end
+        Process.search_and_store keyword, dest_name, ARGV[3] ||= 'ASC'
+
       else
         puts 'usage : twtr2wp store|render'
         return
@@ -78,7 +88,7 @@ module Twtr2wp
     # FIXME : ファイル指定してレンダリング
     def rendering_file
       unless src_file = ARGV[1]
-        puts 'usage : twtr2wp rendering_file {src_file}'
+        puts 'usage : twtr2wp rendering_file src_file [template]'
       end
       erb_name = ARGV[2] ||= 'blog'
 

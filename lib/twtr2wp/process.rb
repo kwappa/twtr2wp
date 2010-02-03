@@ -103,5 +103,37 @@ module Twtr2wp
       end
     end
 
+    # 保存済みファイルからキーワード検索
+    def self.search_and_store keyword, dest_name, sort_order
+      result = []
+
+      # データファイル全てチェック
+      Dir.glob("data/monthly/#{Account::LOGIN}*.txt").each do |file|
+        File.open(file) { |f|
+          while line = f.gets
+            status = JSON::parse(line)
+            if status['text'] =~ /#{keyword}/i
+              result << status
+            end
+          end
+        }
+      end
+
+      # ソート
+      result.sort! { |a, b|
+        b['created_at'] <=> a['created_at']
+      }
+      if sort_order =~ /desc/i
+        result.reverse!
+      end
+
+      # 書き出し
+      File.open("data/work/#{dest_name}.txt", 'w') { |w|
+        result.each do |status|
+          w.puts status.to_json
+        end
+      }
+    end
+
   end
 end
