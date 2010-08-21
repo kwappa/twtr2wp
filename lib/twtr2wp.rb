@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*-
-require 'rubygems'
-require 'twitter'
+require 'rubytter'
 require 'json'
 require 'pp'
-# require 'CGI'
 
 require 'twtr2wp/account'
 require 'twtr2wp/api'
@@ -112,5 +110,4 @@ module Twtr2wp
 
   end
 
-  Twtr2wp.new.run
 end

@@ -1,6 +1,8 @@
 #!/usr/bin/env ruby
 # -*- colding: utf-8 -*-
-$: << File.dirname(__FILE__) + '/lib'
-
+$: << File.join(File.dirname(File.expand_path(__FILE__)) , 'lib')
 require 'rubygems'
+require 'bundler'
+Bundler.setup
 require 'twtr2wp'
+Twtr2wp::Twtr2wp.new.run

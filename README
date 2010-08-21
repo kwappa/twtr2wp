@@ -3,19 +3,19 @@
 
 ・commitしていないファイル
   * lib/twtr2wp/account.rb
-    twitterアカウント情報を記入してください。
+    account.rb.sampleを参考に、CONSUMER_KEY / SECRET, ACCESS_TOKEN / SECRETを記入してください。
 
-# -*- coding: utf-8 -*-
-module Twtr2wp
-  class Account
-    LOGIN    = '<USER ID>'
-    PASSWORD = '<PASSWORD>'
-  end
-end
-
+・必要なディレクトリ
   * data/monthly/
   * data/result/
   * data/src/
 
     …データファイルの保存に使います。data/以下は書き込み可能にしてください。
 
+================================================================================
+2010-08-21
+ * 使用ライブラリをtwitter4rからrubytterに変更しました。
+ * OAuth対応を行いました。
+ * account.rb.sampleを追加しました。
+ * HASHTAGへのリンク生成にあったバグを修正しました。
+ * bundlerを使うようにしました。
