@@ -76,7 +76,7 @@ module Twtr2wp
 
       renderer = Renderer.new
       timeline = renderer.render_timeline "data/monthly/#{Account::LOGIN}_#{ym}.txt", status_erb
-      page     = renderer.render_page timeline, body_erb
+      page     = renderer.render_page timeline, "#{Account::LOGIN}_#{ym}", body_erb
 
       File.open("data/result/#{ym}.html", 'w') { |w|
         w.write page

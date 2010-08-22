@@ -27,7 +27,7 @@ module Twtr2wp
     end
 
     # ページをレンダリング
-    def render_page rendered_timelines, erb_name
+    def render_page rendered_timelines, title, erb_name
       erb_name = "data/erb/layout/#{erb_name}.erb"
       unless File.exists? erb_name
         raise "#{erb_name} is not exists."
