@@ -2,12 +2,8 @@
 require 'rubytter'
 require 'json'
 
-require 'twtr2wp/account'
-require 'twtr2wp/api'
-require 'twtr2wp/datafile'
-require 'twtr2wp/process'
-require 'twtr2wp/renderer'
-require 'twtr2wp/util'
+DATA_DIR = File.join CURRENT_DIR, 'data'
+Dir.glob(File.join(CURRENT_DIR, 'lib', 'twtr2wp', '*.rb')) { |rb| require rb }
 
 module Twtr2wp
   class Twtr2wp
