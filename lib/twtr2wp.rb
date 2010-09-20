@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 require 'rubytter'
 require 'json'
-require 'pp'
 
 require 'twtr2wp/account'
 require 'twtr2wp/api'

@@ -1,0 +1,25 @@
+--- 
+hash: e95c7a539b21aee3a265edc4b94de1085a86e2cc
+sources: 
+- Rubygems: 
+    uri: http://rubygems.org
+specs: 
+- json: 
+    version: 1.4.6
+- oauth: 
+    version: 0.4.3
+- rubytter: 
+    version: 1.4.1
+dependencies: 
+  rubytter: 
+    version: ">= 0"
+    group: 
+    - :default
+  json: 
+    version: ">= 0"
+    group: 
+    - :default
+  oauth: 
+    version: ">= 0"
+    group: 
+    - :default
