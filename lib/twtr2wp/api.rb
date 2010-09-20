@@ -32,5 +32,12 @@ module Twtr2wp
       @client.favorites(:page => page)
     end
 
+    def method_missing name, *args
+      if @client.respond_to? name
+        @client.send(name, *args)
+      end
+    end
+
+
   end
 end
