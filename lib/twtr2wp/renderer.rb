@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+require 'erb'
 module Twtr2wp
   class Renderer
 

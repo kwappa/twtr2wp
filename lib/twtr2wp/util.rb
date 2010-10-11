@@ -1,20 +1,24 @@
 # -*- coding: utf-8 -*-
+require 'cgi'
 module Twtr2wp
   class Util
 
     # リンクを生成
     def self.link_status_text status, options = { }
       options[:br] ||= '<br />'
-      text = status['text'].gsub(/\r?\n/, options[:br])
+      text = status['text']
 
       if options[:unescape]
         text = CGI::unescapeHTML text
       end
 
+      if status['id'] > 21214075217
+        text = CGI::escapeHTML text
+      end
       text = self.link_url text
       text = self.link_user text
       text = self.link_hash_tag text
-      text
+      text.gsub(/\r?\n/, options[:br])
     end
 
     # 本文中の#HASHTAGに対するリンク
