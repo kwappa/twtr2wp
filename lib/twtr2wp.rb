@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 require 'rubytter'
 require 'json'
-
+require 'time'
 DATA_DIR = File.join CURRENT_DIR, 'data'
 Dir.glob(File.join(CURRENT_DIR, 'lib', 'twtr2wp', '*.rb')) { |rb| require rb }
 
