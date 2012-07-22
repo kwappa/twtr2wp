@@ -1,0 +1,7 @@
+#!/bin/sh
+export PATH=$HOME/.rvm/bin:$PATH
+source /home/kwappa/.rvm/scripts/rvm
+rvm use 1.9.3
+cd /var/www/kwappa.net/www/tool/twtr2wp
+ruby -Eutf-8 /var/www/kwappa.net/www/tool/twtr2wp/twtr2wp render
+ruby -Eutf-8 /var/www/kwappa.net/www/tool/twtr2wp/twtr2wp store
